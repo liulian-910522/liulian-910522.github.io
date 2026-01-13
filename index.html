@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>标签页切换示例</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .tab-content {
+            display: none;
+        }
+
+            .tab-content.active {
+                display: block;
+            }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+    <div class="container mx-auto p-6">
+        <!--<h1 class="text-3xl font-bold text-center mb-6">标签页切换页面</h1>-->
+
+        <!-- 标签导航 -->
+        <div class="flex border-b border-gray-300 mb-6">
+            <button id="tab1" class="py-2 px-4 font-medium text-blue-600 border-b-2 border-blue-600 focus:outline-none">页签1</button>
+            <button id="tab2" class="py-2 px-4 font-medium text-gray-600 hover:text-blue-600 focus:outline-none">页签2</button>
+            <button id="tab3" class="py-2 px-4 font-medium text-gray-600 hover:text-blue-600 focus:outline-none">页签3</button>
+        </div>
+
+        <!-- 页面内容 -->
+        <div id="page1" class="tab-content active">
+            <h2 class="text-2xl font-semibold mb-4">页签1内容</h2>
+            <p class="mb-4">这是页签1的内容区域。你可以在这里展示与页签1相关的信息。</p>
+            <img src="https://picsum.photos/600/300?image=1" alt="页签1示例图片" class="rounded shadow-md">
+        </div>
+
+        <div id="page2" class="tab-content">
+            <h2 class="text-2xl font-semibold mb-4">页签2内容</h2>
+            <p class="mb-4">这是页签2的内容区域。你可以在这里展示与页签2相关的信息。</p>
+            <img src="https://picsum.photos/600/300?image=2" alt="页签2示例图片" class="rounded shadow-md">
+        </div>
+
+        <div id="page3" class="tab-content">
+            <h2 class="text-2xl font-semibold mb-4">页签3内容</h2>
+            <p class="mb-4">这是页签3的内容区域。你可以在这里展示与页签3相关的信息。</p>
+            <img src="https://picsum.photos/600/300?image=3" alt="页签3示例图片" class="rounded shadow-md">
+        </div>
+    </div>
+
+    <script>const tabs = document.querySelectorAll('button[id^="tab"]');
+    const pages = document.querySelectorAll('div[id^="page"]');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        // 移除所有标签的激活状态
+        tabs.forEach(t => {
+          t.classList.remove('text-blue-600', 'border-b-2', 'border-blue-600');
+          t.classList.add('text-gray-600');
+        });
+        // 添加当前标签的激活状态
+        tab.classList.remove('text-gray-600');
+        tab.classList.add('text-blue-600', 'border-b-2', 'border-blue-600');
+
+        // 隐藏所有页面内容
+        pages.forEach(page => {
+          page.classList.remove('active');
+        });
+
+        // 显示对应页面内容
+        const pageId = tab.id.replace('tab', 'page');
+        document.getElementById(pageId).classList.add('active');
+      });
+    });</script>
+</body>
+</html>
