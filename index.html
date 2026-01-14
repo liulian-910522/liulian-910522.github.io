@@ -22,34 +22,67 @@
             border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
+        div>a{
+
+        }
+
+        a:hover {
+            text-decoration: underline; /* 悬停时显示下*/
+        }
     </style>
 </head>
 <body class="bg-gradient-to-br from-blue-50 to-indigo-100">
 
     <div class="container mx-auto p-6">
         <!--<h1 class="text-3xl font-bold text-center mb-6 text-gray-800">标签页切换页面</h1>-->
-
         <!-- 标签导航 -->
         <div class="flex border-b border-gray-300 mb-6 bg-white rounded-t-lg shadow-sm">
-            <button id="tab1" class="py-3 px-6 font-medium text-blue-600 border-b-2 border-blue-600 focus:outline-none rounded-tl-lg">页签1</button>
-            <button id="tab2" class="py-3 px-6 font-medium text-gray-600 hover:text-blue-600 focus:outline-none">页签2</button>
-            <button id="tab3" class="py-3 px-6 font-medium text-gray-600 hover:text-blue-600 focus:outline-none rounded-tr-lg">页签3</button>
+            <button id="tab1" class="py-3 px-6 font-medium text-blue-600 border-b-2 border-blue-600 focus:outline-none rounded-tl-lg">Product Overview</button>
+            <button id="tab2" class="py-3 px-6 font-medium text-gray-600 hover:text-blue-600 focus:outline-none">Download</button>
+            <button id="tab3" class="py-3 px-6 font-medium text-gray-600 hover:text-blue-600 focus:outline-none rounded-tr-lg">Online Help(pdf)</button>
+            <button id="tab4" class="py-3 px-6 font-medium text-gray-600 hover:text-blue-600 focus:outline-none rounded-tr-lg">Online Help(html)</button>
         </div>
 
         <!-- 页面内容 -->
         <div id="page1" class="tab-content active">
-            <h2 class="text-2xl font-semibold mb-4 text-gray-700">百度首页</h2>
-            <iframe src="https://www.baidu.com/" class="tab-iframe" title="百度首页"></iframe>
+            <!-- <h2 class="text-2xl font-semibold mb-4 text-gray-700">Product Overview</h2>-->
+            <pre style=" white-space: pre-wrap; /* 允许文本内部换行 */ width: 90%; /* 设置一个固定宽度 */ overflow-x: auto; /* 水平方向超出时显示滚动条 */">
+<span style="font-size:30px;font-weight:700">Preface: Product Overview</span>
+​Equant Works is a next-generation document management platform focusing on content enhancement and engineering workflows. Unlike traditional office software, Equant Works is designed to complement existing tools while providing specialized depth for industry scenarios. It features built-in construction estimation templates designed to significantly improve calculation efficiency.
+ 
+<span style="font-size:30px;font-weight:700">Key Features：</span>
+1. Unified Resource Explorer: View folders and documents simultaneously for quick access. Toggle between "Detail" and "Compact" modes to inspect document attributes easily.
+2. Tabbed Multi-View Interface: Supports Split-View (Side-by-Side or Stacked) for easy cross-referencing and comparison.
+3. Lightweight Document Engine: Built-in viewers for Office, PDF, DWG, and image files with basic editing capabilities. It also supports embedding MS Office, LibreOffice, and AutoCAD for full editing.
+4. Auto-Backup & Recovery: Automatic document backup with version history and restore points.
+5. Custom Properties (Metadata): Define custom attributes for folders/nodes to facilitate fast searching. These properties can serve as variables within documents—updating a property value in the panel automatically updates the referenced text in the document.
+6. Formula Auditing: Dynamically analyze cell references and dependencies. Trace which formulas reference a specific cell for complete data transparency.
+7. Column-Level Formula Automation: Pre-set formulas for entire columns. Formulas are automatically generated when editing, eliminating the need for manual copy-pasting.
+8. Automated Subtotals: Built-in logic for sectional statistics, tailored for construction cost estimation workflows.
+9. CAD/PDF Data Linkage: Extract quantity data directly from .dwg or .pdf drawings into spreadsheets. Modifying the drawing entity automatically updates the spreadsheet. Includes bi-directional tracing to locate drawing entities from spreadsheet data.
+10、Built-in Estimation Templates: Includes standard templates such as Takeoff Sheets and Bill of Quantities (BOQ) for rapid project setup.                
+            </pre>
         </div>
-
         <div id="page2" class="tab-content">
-            <h2 class="text-2xl font-semibold mb-4 text-gray-700">百度新闻</h2>
-            <iframe src="https://news.baidu.com/" class="tab-iframe" title="百度新闻"></iframe>
-        </div>
-
+            <h2 class="text-2xl font-semibold mb-4 text-gray-700">下载文件</h2>
+            <div style="color: #2592F3; margin-bottom: 15px;">
+                <a class="link-container" href="help-en.pdf" download="help-en.pdf">下载PDF文件</a>
+             </div>
+            <div style="color: #2592F3; margin-bottom: 15px;">
+                 <a class="link-container" href="help-en.docx" download="help-en.docx">下载DOCX文件</a>
+            </div>
+         </div>
+        
         <div id="page3" class="tab-content">
-            <h2 class="text-2xl font-semibold mb-4 text-gray-700">百度地图</h2>
-            <iframe src="https://map.baidu.com/" class="tab-iframe" title="百度地图"></iframe>
+            <!--#toolbar=0：隐藏工具栏
+    #navpanes=0：隐藏侧边栏
+    #zoom=scale：设置缩放级别（如 #zoom=150）
+    #page=number：指定打开页码（如 #page=3）
+    #view=Fit：适应屏幕尺寸-->
+            <iframe src="help-en.pdf#toolbar=0" class="tab-iframe" title="Online Help"></iframe>
+        </div>
+        <div id="page4" class="tab-content">
+            <iframe src="help.html" class="tab-iframe" title="Online Help"></iframe>
         </div>
     </div>
 
